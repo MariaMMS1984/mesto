@@ -17,8 +17,20 @@
     align-items: center;
     width: 100%;
     cursor: pointer;
+    text-align: center;
 }
 
 .popup__save-button:hover {
     opacity: 0.8;
+}
+
+
+
+@media screen and (max-width:660px) {
+
+    .popup__save-button {
+        font-size: 14px;
+        line-height: 17px;
+    }
+
 }
