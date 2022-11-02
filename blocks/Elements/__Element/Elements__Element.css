@@ -1,4 +1,4 @@
-.Elements__Element {
+.elements__element {
     display: flex;
     flex-direction: column;
     max-width: 280px;
@@ -8,7 +8,7 @@
 
 @media screen and (max-width:900px) {
 
-    .Elements__Element {
+    .elements__element {
         max-width: 282px;
     }
 

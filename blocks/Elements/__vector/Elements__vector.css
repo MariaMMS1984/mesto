@@ -1,14 +1,12 @@
-.Elements__vector {
+.elements__vector {
     max-width: 22px;
     max-height: 19px;
     object-fit: fill;
     object-position: 0% 0%;
     margin: 5px 0 0;
-
 }
 
-.Elements__vector:hover {
-    background-image: url(../../../images/Elements__heart-active.png);
+.elements__vector:hover {
+    background-image: url(../../../images/Elements__heart-active.svg);
     background-size: cover;
-
 }

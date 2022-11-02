@@ -1,17 +1,16 @@
 .profile__add-button {
     min-width: 150px;
     min-height: 50px;
+    max-height: 50px;
     background-color: #000000;
     border-radius: 2px;
     color: #FFFFFF;
     padding: 14px 64px;
     align-self: flex-end;
-    position: absolute;
-    right: 0;
-    top: 35px;
     opacity: 1;
-    border: 1px solid #FFFFFF;
-    margin: 0;
+    border: 2px solid #FFFFFF;
+    margin: auto 0 auto auto;
+    vertical-align: middle;
 }
 
 .profile__add-button:hover {
@@ -23,7 +22,6 @@
     .profile__add-button {
         position: relative;
         width: 100%;
-        margin-top: -41px;
     }
 
 }

@@ -1,3 +1,12 @@
 .profile__add-vector {
     max-width: 22px;
+    min-width: 22px;
+}
+
+@media screen and (max-width:660px) {
+
+    .profile__add-vector {
+        min-width: 16px;
+    }
+
 }
