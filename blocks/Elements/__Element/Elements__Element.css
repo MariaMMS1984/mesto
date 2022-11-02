@@ -1,0 +1,15 @@
+.Elements__Element {
+    display: flex;
+    flex-direction: column;
+    max-width: 280px;
+    max-height: 361px;
+    align-self: center;
+}
+
+@media screen and (max-width:900px) {
+
+    .Elements__Element {
+        max-width: 282px;
+    }
+
+}

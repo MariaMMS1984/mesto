@@ -1,0 +1,8 @@
+.Elements__image {
+    padding: 0;
+    margin: 0;
+    max-width: 282px;
+    max-height: 282px;
+    -webkit-border-top-left-radius: 5%;
+    -webkit-border-top-right-radius: 5%;
+}
