@@ -1,6 +1,6 @@
-.elements__title {
+.card__title {
     padding: 0;
-    margin: 0;
+    margin: 23px auto 27px 21px;
     font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
     font-style: normal;
     font-weight: 900;

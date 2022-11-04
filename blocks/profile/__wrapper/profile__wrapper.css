@@ -1,4 +1,4 @@
-.profile__something {
+.profile__wrapper {
     display: flex;
     flex-direction: row;
 }
