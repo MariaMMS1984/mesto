@@ -12,16 +12,16 @@ function formSubmitHandler(evt) {
     evt.preventDefault();
     profileName.textContent = nameInput.value;
     profileProfession.textContent = jobInput.value;
-    popupElem.classList.remove('popup_opened');
+    closePopup();
 }
 
-function openpopup() {
+function openPopup() {
     nameInput.value = profileName.textContent;
     jobInput.value = profileProfession.textContent;
     popupElem.classList.add('popup_opened');
 }
 
-function closepopup() {
+function closePopup() {
     popupElem.classList.remove('popup_opened');
 }
 
@@ -31,8 +31,8 @@ document.querySelectorAll('.card__like-button').forEach(heartElem => {
     })
 })
 
-openPopupButtonElem.addEventListener('click', openpopup);
+openPopupButtonElem.addEventListener('click', openPopup);
 
 formElement.addEventListener('submit', formSubmitHandler);
 
-closePopupButtonElem.addEventListener('click', closepopup);
+closePopupButtonElem.addEventListener('click', closePopup);
