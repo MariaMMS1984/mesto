@@ -7,8 +7,8 @@
     padding: 0 36px;
     box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
     border-radius: 10px;
-    transform: translate(-0.5%, -0.5%);
     align-self: center;
+    position: relative;
 }
 
 @media screen and (max-width:660px) {

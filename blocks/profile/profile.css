@@ -9,13 +9,11 @@
     padding: 0;
 }
 
-
 @media screen and (max-width:900px) {
     .profile {
         max-width: 650px;
     }
 }
-
 
 @media screen and (max-width:660px) {
     .profile {
