@@ -6,7 +6,7 @@ const openPopupCardButtonElem = document.querySelector('.profile__add-button');
 const closePopupCardButtonElem = document.querySelector('.cardpopup__close-button');
 const heartElem = document.querySelectorAll('.card__like-button');
 let formElement = document.querySelector('.popup__container');
-let formCardElement = document.querySelector('.cardpopup__save-button');
+let formCardElement = document.querySelector('.cardpopup__container');
 let nameInput = document.querySelector('.popup__input_data_name');
 let jobInput = document.querySelector('.popup__input_data_profession');
 let nameCardInput = document.querySelector('.cardpopup__input_data_name');
@@ -67,18 +67,21 @@ document.querySelectorAll('.card__like-button').forEach(heartElem => {
 })
 
 function openCardPopup() {
+    console.log('open');
     nameCardInput.value = "Название";
     linkInput.value = "Ссылка на картинку";
     popupCardElem.classList.add('cardpopup_opened');
 }
 
 function closeCardPopup() {
+    console.log('close');
     popupCardElem.classList.remove('cardpopup_opened');
 }
 
 function formCardSubmitHandler(evt) {
+    console.log('vvv');
     evt.preventDefault();
-    addCard({ name: nameCardInput.value, link: linkInput.value });
+    renderCard({ name: nameCardInput.value, link: linkInput.value });
     closeCardPopup();
 }
 
@@ -109,6 +112,7 @@ function render() {
 }
 
 function renderCard({ name, link }) {
+    console.log('vvv');
     const cardsElement = cardsTemplate
         .querySelector(".card")
         .cloneNode(true);
