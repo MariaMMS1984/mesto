@@ -29,49 +29,7 @@
                 </button>
             </section>
             <section class="elements">
-                <div class="card">
-                    <img src="./images/element__Karachaevsk.jpg" class="card__image" alt="Карачаевск">
-                    <div class="card__footer">
-                        <h2 class="card__title">Карачаевск</h2>
-                        <button type="button" class="card__like-button">
-                        </button>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="./images/element__Elbrus.jpg" class="card__image" alt="Эльбрус">
-                    <div class="card__footer">
-                        <h2 class="card__title">Гора Эльбрус</h2>
-                        <button type="button" class="card__like-button"></button>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="./images/element__dombai.jpg" class="card__image" alt="Домбай">
-                    <div class="card__footer">
-                        <h2 class="card__title">Домбай</h2>
-                        <button type="button" class="card__like-button"></button>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="./images/element__Elbrus.jpg" class="card__image" alt="Эльбрус">
-                    <div class="card__footer">
-                        <h2 class="card__title">Гора Эльбрус</h2>
-                        <button type="button" class="card__like-button"></button>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="./images/element__dombai.jpg" class="card__image" alt="Домбай">
-                    <div class="card__footer">
-                        <h2 class="card__title">Домбай</h2>
-                        <button type="button" class="card__like-button"></button>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="./images/element__Karachaevsk.jpg" class="card__image" alt="Карачаевск">
-                    <div class="card__footer">
-                        <h2 class="card__title">Карачаево-Черкессия</h2>
-                        <button type="button" class="card__like-button"></button>
-                    </div>
-                </div>
+
             </section>
         </main>
         <footer class="footer">
@@ -90,7 +48,30 @@
                 </form>
             </div>
         </div>
+        <div class="cardpopup">
+            <div class="cardpopup__content">
+                <button class="cardpopup__close-button" type="button"></button>
+                <h2 class="cardpopup__title">Новое место</h2>
+                <form class="cardpopup__container" name="edit">
+                    <input class="cardpopup__input cardpopup__input_data_name" type="text" name="name">
+                    <input class="cardpopup__input cardpopup__input_data_link" type="text" name="link">
+                    <button class="cardpopup__save-button" type="submit">
+                        Создать
+                    </button>
+                </form>
+            </div>
+        </div>
     </div>
+    <template id="cards-template">
+        <div class="card">
+            <img class="card__image">
+            <div class="card__footer">
+                <h2 class="card__title"></h2>
+                <button type="button" class="card__like-button">
+                </button>
+            </div>
+        </div>
+    </template>
     <script src="./script/index.js"></script>
 </body>
 

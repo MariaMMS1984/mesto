@@ -29,3 +29,11 @@
 @import url(../blocks/popup/__save-button/popup__save-button.css);
 @import url(../blocks/popup/__close-button/popup__close-button.css);
 @import url(../blocks/popup/__title/popup__title.css);
+@import url(../blocks/cardpopup/cardpopup.css);
+@import url(../blocks/cardpopup/_opened/cardpopup_opened.css);
+@import url(../blocks/cardpopup/__close-button/cardpopup__close-button.css);
+@import url(../blocks/cardpopup/__container/cardpopup__container.css);
+@import url(../blocks/cardpopup/__content/cardpopup__content.css);
+@import url(../blocks/cardpopup/__input/cardpopup__input.css);
+@import url(../blocks/cardpopup/__save-button/cardpopup__save-button.css);
+@import url(../blocks/cardpopup/__title/cardpopup__title.css);
