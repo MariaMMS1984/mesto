@@ -61,10 +61,21 @@
                 </form>
             </div>
         </div>
+        <div class="imagepopup">
+            <div class="imagepopup__content">
+                <h2 class="imagepopup__title"></h2>
+                <img class="imagepopup__image">
+                <button class="imagepopup__close-button" type="button"></button>
+            </div>
+        </div>
     </div>
     <template id="cards-template">
         <div class="card">
             <img class="card__image">
+            <button type="button" class="card__delete-button">
+                <img src="./images/Vector__cut.svg" alt="крышка">
+                <img src="./images/Vector__delete.svg" alt="корзина" class="card__trashcan">
+            </button>
             <div class="card__footer">
                 <h2 class="card__title"></h2>
                 <button type="button" class="card__like-button">

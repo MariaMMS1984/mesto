@@ -6,4 +6,5 @@
     border-top-right-radius: 10px;
     max-height: 282px;
     min-height: 282px;
+    cursor: pointer;
 }

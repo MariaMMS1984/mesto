@@ -15,6 +15,11 @@ const profileName = document.querySelector('.profile__name');
 const profileProfession = document.querySelector('.profile__profession');
 const cardName = document.querySelector('.card__title');
 const cardLink = document.querySelector('.card__image');
+const recycleElem = document.querySelector('.card__delete-button');
+const popupImageElem = document.querySelector('.imagepopup');
+const nameImage = document.querySelector('.imagepopup__title');
+const linkImage = document.querySelector('.imagepopup__image');
+const closePopupImageButtonElem = document.querySelector('.imagepopup__close-button');
 
 const initialCards = [
     {
@@ -70,12 +75,6 @@ function closePopup() {
     popupElem.classList.remove('popup_opened');
 }
 
-document.querySelectorAll('.card__like-button').forEach(heartElem => {
-    heartElem.addEventListener('click', () => {
-        heartElem.classList.toggle('card__like-button_active');
-    })
-})
-
 function openCardPopup() {
     nameCardInput.value = "Название";
     linkInput.value = "Ссылка на картинку";
@@ -84,6 +83,10 @@ function openCardPopup() {
 
 function closeCardPopup() {
     popupCardElem.classList.remove('cardpopup_opened');
+}
+
+function closeImagePopup() {
+    popupImageElem.classList.remove('imagepopup_opened');
 }
 
 function formCardSubmitHandler(evt) {
@@ -103,16 +106,34 @@ function renderCard({ name, link }) {
     cardsElement.querySelector(".card__title").textContent = name;
     cardsElement.querySelector(".card__image").src = link;
     cardsElement.querySelector(".card__image").alt = name;
+    cardsElement.querySelectorAll('.card__delete-button').forEach(recycleElem => {
+        recycleElem.addEventListener('click', () => { cardsElement.remove(); });
+    })
     cardsElement.querySelectorAll('.card__like-button').forEach(heartElem => {
         heartElem.addEventListener('click', () => {
             heartElem.classList.toggle('card__like-button_active');
         });
+    })
+    cardsElement.querySelectorAll('.card__image').forEach(cardLink => {
+        cardLink.addEventListener('click', openImagePopup);
+    })
+    cardsElement.querySelectorAll('.card__image').forEach(cardLink => {
+        cardLink.addEventListener('click', renderImage);
     })
     elements.prepend(cardsElement);
 }
 
 render();
 
+function renderImage() {
+    cardsInfo.forEach(openImagePopup);
+}
+
+function openImagePopup(renderCard) {
+    nameImage.textContent = renderCard.name;
+    linkImage.src = renderCard.link;
+    popupImageElem.classList.add('imagepopup_opened');
+}
 
 openPopupButtonElem.addEventListener('click', openPopup);
 
@@ -125,4 +146,10 @@ openPopupCardButtonElem.addEventListener('click', openCardPopup);
 closePopupCardButtonElem.addEventListener('click', closeCardPopup);
 
 formCardElement.addEventListener('submit', formCardSubmitHandler);
+
+closePopupImageButtonElem.addEventListener('click', closeImagePopup);
+
+
+
+
 
