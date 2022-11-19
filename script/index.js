@@ -15,7 +15,7 @@ const profileName = document.querySelector('.profile__name');
 const profileProfession = document.querySelector('.profile__profession');
 const cardName = document.querySelector('.card__title');
 const cardLink = document.querySelector('.card__image');
-const deleteButtonElem = document.querySelector('card__delete-button');
+const deleteButtonElem = document.querySelector('.card__delete-button');
 
 const initialCards = [
     {
