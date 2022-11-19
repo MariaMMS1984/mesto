@@ -15,7 +15,6 @@ const profileName = document.querySelector('.profile__name');
 const profileProfession = document.querySelector('.profile__profession');
 const cardName = document.querySelector('.card__title');
 const cardLink = document.querySelector('.card__image');
-const deleteButtonElem = document.querySelector('.card__delete-button');
 
 const initialCards = [
     {
@@ -84,7 +83,6 @@ function openCardPopup() {
 }
 
 function closeCardPopup() {
-    console.log('close');
     popupCardElem.classList.remove('cardpopup_opened');
 }
 
@@ -108,7 +106,7 @@ function renderCard({ name, link }) {
     cardsElement.querySelectorAll('.card__like-button').forEach(heartElem => {
         heartElem.addEventListener('click', () => {
             heartElem.classList.toggle('card__like-button_active');
-        })
+        });
     })
     elements.prepend(cardsElement);
 }
@@ -128,8 +126,3 @@ closePopupCardButtonElem.addEventListener('click', closeCardPopup);
 
 formCardElement.addEventListener('submit', formCardSubmitHandler);
 
-deleteButtonElem.addEventListener('click', newFunction());
-
-function newFunction() {
-    return console.log('close');
-}
