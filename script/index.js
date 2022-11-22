@@ -2,6 +2,8 @@ const popupEl = document.querySelector('.popup');
 const profilePopupElem = document.querySelector('.profile-popup');
 const openPopupButtonElem = document.querySelector('.profile__edit-button');
 const closePopupButtonElem = document.querySelector('.popup__close-button');
+const closeCardPopupButtonElem = document.querySelector('.cardpopup__close-button');
+const closeImagePopupButtonElem = document.querySelector('.imagepopup__close-button');
 const popupCardElem = document.querySelector('.cardpopup');
 const openPopupCardButtonElem = document.querySelector('.profile__add-button');
 const heartElem = document.querySelectorAll('.card__like-button');
@@ -57,7 +59,7 @@ function submitFormHandler(evt) {
     evt.preventDefault();
     profileName.textContent = nameInput.value;
     profileProfession.textContent = jobInput.value;
-    closePopup();
+    closePopup(popupEl);
 }
 function openPopup(popupEl) {
     popupEl.classList.add('popup_opened');
@@ -67,8 +69,17 @@ function openProfilePopup() {
     jobInput.value = profileProfession.textContent;
     openPopup(profilePopupElem);
 }
-function closePopup() {
+function closePopup(popupEl) {
     popupEl.classList.remove('popup_opened');
+}
+function closeProfilePopup(popupEl) {
+    closePopup(profilePopupElem);
+}
+function closeCardPopup() {
+    closePopup(popupCardElem);
+}
+function closeImagePopup() {
+    closePopup(popupImageElem);
 }
 function openCardPopup() {
     nameCardInput.value = "";
@@ -78,7 +89,7 @@ function openCardPopup() {
 function submitCardFormHandler(evt) {
     evt.preventDefault();
     addCard({ name: nameCardInput.value, link: linkInput.value });
-    closePopup();
+    closePopup(popupCardElem);
 }
 function render() {
     cardsInfo.forEach(renderCard);
@@ -114,6 +125,8 @@ function openImagePopup({ name, link }) {
 }
 openPopupButtonElem.addEventListener('click', openProfilePopup);
 formElement.addEventListener('submit', submitFormHandler);
-closePopupButtonElem.addEventListener('click', closePopup);
+closePopupButtonElem.addEventListener('click', closeProfilePopup);
+closeCardPopupButtonElem.addEventListener('click', closeCardPopup);
+closeImagePopupButtonElem.addEventListener('click', closeImagePopup);
 openPopupCardButtonElem.addEventListener('click', openCardPopup);
 formCardElement.addEventListener('submit', submitCardFormHandler);
