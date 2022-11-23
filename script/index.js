@@ -1,5 +1,5 @@
-const popupEl = document.querySelector('.popup');
-const profilePopupElem = document.querySelector('.profile-popup');
+const popupEl = document.querySelector('.popup');     //это НЕ попап профиля, это элемент именно для класса всех попапов для создания универсальных функций
+const profilePopupElem = document.querySelector('.profile-popup');    //вот константа для попапа профиля, ей задан конкретный селектор для профиля, в дальнейшем эта константа используется для открытия и закрытия попапа профиля
 const openPopupButtonElem = document.querySelector('.profile__edit-button');
 const closePopupButtonElem = document.querySelector('.popup__close-button');
 const closeCardPopupButtonElem = document.querySelector('.cardpopup__close-button');
@@ -59,7 +59,7 @@ function submitFormHandler(evt) {
     evt.preventDefault();
     profileName.textContent = nameInput.value;
     profileProfession.textContent = jobInput.value;
-    closePopup(popupEl);
+    closePopup(profilePopupElem);
 }
 function openPopup(popupEl) {
     popupEl.classList.add('popup_opened');
@@ -72,7 +72,7 @@ function openProfilePopup() {
 function closePopup(popupEl) {
     popupEl.classList.remove('popup_opened');
 }
-function closeProfilePopup(popupEl) {
+function closeProfilePopup() {
     closePopup(profilePopupElem);
 }
 function closeCardPopup() {
@@ -92,7 +92,6 @@ function submitCardFormHandler(evt) {
     closePopup(popupCardElem);
 }
 function render() {
-    cardsInfo.forEach(renderCard);
     cardsInfo.forEach(addCard);
 }
 
