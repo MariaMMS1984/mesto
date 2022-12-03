@@ -129,3 +129,24 @@ closeCardPopupButtonElem.addEventListener('click', closeCardPopup);
 closeImagePopupButtonElem.addEventListener('click', closeImagePopup);
 openPopupCardButtonElem.addEventListener('click', openCardPopup);
 formCardElement.addEventListener('submit', submitCardFormHandler);
+
+
+document.addEventListener('keydown', function (evt) {
+    if (evt.key === 'Escape') {
+        closeProfilePopup();
+        closeCardPopup();
+        closeImagePopup();
+    }
+});
+
+document.querySelectorAll('.popup').forEach(popupEl => {
+    popupEl.addEventListener('click', (evt) => {
+        if (evt.target === evt.currentTarget) {
+            closeProfilePopup();
+            closeCardPopup();
+            closeImagePopup();
+        }
+    });
+})
+
+
