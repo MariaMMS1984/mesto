@@ -1,4 +1,4 @@
-.imagepopup__title {
+.popup__imgtitle {
     font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
     font-style: normal;
     font-weight: 400;
@@ -14,7 +14,7 @@
 }
 
 @media screen and (max-width:910px) {
-    .imagepopup__title {
+    .popup__imgtitle {
         bottom: -90px;
     }
 }

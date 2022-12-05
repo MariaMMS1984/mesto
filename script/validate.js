@@ -70,6 +70,17 @@ function enableValidation(validParametrs) {
 
 enableValidation(validParametrs);
 
+function stopCreate(validParametrs) {
+    const saveElement = document.querySelector('.popup__save-button');
+    const submitButtons = Array.from(document.querySelectorAll('.popup__save-button'));
+    submitButtons.forEach((saveElement) => {
+        saveElement.disabled = true;
+        saveElement.classList.add(validParametrs.inactiveButtonClass);
+    });
+};
+
+
+
 
 
 
