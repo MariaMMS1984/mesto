@@ -2,7 +2,7 @@
     position: fixed;
     align-self: center;
     width: 100%;
-    background-color: rgba(0, 0, 0, .9); //использую это правило, чтобы записать отличное от других попапов opacity;
+    background-color: rgba(0, 0, 0, .9);
     left: 0;
     top: 0;
     right: 0;
