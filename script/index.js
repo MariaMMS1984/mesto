@@ -1,4 +1,3 @@
-const popupEl = document.querySelector('.popup');     //это НЕ попап профиля, это элемент именно для класса всех попапов для создания универсальных функций
 const profilePopup = document.querySelector('.profile-popup');    //вот константа для попапа профиля, ей задан конкретный селектор для профиля, в дальнейшем эта константа используется для открытия и закрытия попапа профиля
 const buttonOpenPopupProfile = document.querySelector('.profile__edit-button');
 const closeButtons = document.querySelectorAll('.popup__close-button');
@@ -19,6 +18,7 @@ const recycleElem = document.querySelector('.card__delete-button');
 const popupImage = document.querySelector('.imagepopup');
 const nameImage = document.querySelector('.popup__imgtitle');
 const linkImage = document.querySelector('.popup__image');
+const saveButton = popupCard.querySelector('.popup__save-button');
 const initialCards = [
     {
         name: 'Архыз',
@@ -59,28 +59,26 @@ function submitFormHandler(evt) {
     profileProfession.textContent = jobInput.value;
     closePopup(profilePopup);
 }
+
+const closePopupByEsc = (evt) => {
+    if (evt.key === 'Escape') {
+        const popup = document.querySelector('.popup_opened');
+        closePopup(popup);
+    }
+};
+
 function openPopup(popupEl) {
     popupEl.classList.add('popup_opened');
-    document.addEventListener('keydown', function (evt) {
-        if (evt.key === 'Escape') {
-            const popup = document.querySelector('.popup_opened');
-            closePopup(popup);
-        }
-    });
+    document.addEventListener('keydown', closePopupByEsc);
 }
 function openProfilePopup() {
     nameInput.value = profileName.textContent;
     jobInput.value = profileProfession.textContent;
     openPopup(profilePopup);
 }
-function closePopup(popupEl) {
+function closePopup(popupEl, closePopupByEsc) {
     popupEl.classList.remove('popup_opened');
-    document.removeEventListener('keydown', function (evt) {
-        if (evt.key === 'Escape') {
-            const popup = document.querySelector('.popup_opened');
-            closePopup(popup);
-        }
-    });
+    document.removeEventListener('keydown', closePopupByEsc);
 }
 function closeProfilePopup() {
     closePopup(profilePopup);

@@ -1,5 +1,3 @@
-const inputElement = document.querySelector('.popup__input');
-
 const validParametrs = {
     formSelector: '.popup__container',
     inputSelector: '.popup__input',
@@ -48,13 +46,13 @@ function checkValidity(inputList) {
     });
 }
 
-function changeButton(inputList, buttonElement, inactiveButtonClass) {
+function changeButton(inputList, buttonElement) {
     if (checkValidity(inputList)) {
         buttonElement.disabled = true;
-        buttonElement.classList.add(inactiveButtonClass);
+        buttonElement.classList.add('popup__save-button_disabled');
     } else {
         buttonElement.disabled = false;
-        buttonElement.classList.remove(inactiveButtonClass);
+        buttonElement.classList.remove('popup__save-button_disabled');
     }
 }
 
@@ -71,12 +69,8 @@ function enableValidation(validParametrs) {
 enableValidation(validParametrs);
 
 function stopCreate(validParametrs) {
-    const saveElement = document.querySelector('.popup__save-button');
-    const submitButtons = Array.from(document.querySelectorAll('.popup__save-button'));
-    submitButtons.forEach((saveElement) => {
-        saveElement.disabled = true;
-        saveElement.classList.add(validParametrs.inactiveButtonClass);
-    });
+    saveButton.disabled = true;
+    saveButton.classList.add(validParametrs.inactiveButtonClass);
 };
 
 
