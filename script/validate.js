@@ -1,3 +1,5 @@
+import { profilePopup, popupCard } from './index.js'
+
 const validParametrs = {
     formSelector: '.popup__container',
     inputSelector: '.popup__input',
@@ -79,3 +81,5 @@ const cardFormValidator = new FormValidator(validParametrs, popupCard);
 
 editFormValidator.enableValidation();
 cardFormValidator.enableValidation();
+
+export { FormValidator }

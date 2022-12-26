@@ -1,3 +1,4 @@
+import { Card } from './card.js'
 const profilePopup = document.querySelector('.profile-popup');    //вот константа для попапа профиля, ей задан конкретный селектор для профиля, в дальнейшем эта константа используется для открытия и закрытия попапа профиля
 const buttonOpenPopupProfile = document.querySelector('.profile__edit-button');
 const closeButtons = document.querySelectorAll('.popup__close-button');
@@ -137,3 +138,4 @@ document.querySelectorAll('.popup').forEach(popupEl => {
 })
 
 
+export { profilePopup, popupCard }

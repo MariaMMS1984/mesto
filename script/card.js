@@ -50,7 +50,15 @@ class Card {
         document.querySelector('.popup__imgtitle').textContent = this._name;
         document.querySelector('.popup__image').src = this._link;
         document.querySelector('.popup__image').alt = this._name;
-        openPopup(popupImage);
+        this._openPopup();
     }
+
+    _openPopup() {
+        const popupEl = document.querySelector('.imagepopup')
+        popupEl.classList.add('popup_opened');
+        document.addEventListener('keydown', () => { popupEl.classList.remove('popup_opened') });
+    }
+
 }
 
+export { Card }
