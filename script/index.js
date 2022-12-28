@@ -1,11 +1,11 @@
-import { Card } from './card.js'
+import { Card } from './Card.js'
+import { FormValidator, validParametrs } from './FormValidator.js'
+
 const profilePopup = document.querySelector('.profile-popup');    //вот константа для попапа профиля, ей задан конкретный селектор для профиля, в дальнейшем эта константа используется для открытия и закрытия попапа профиля
 const buttonOpenPopupProfile = document.querySelector('.profile__edit-button');
 const closeButtons = document.querySelectorAll('.popup__close-button');
 const popupCard = document.querySelector('.cardpopup');
 const buttonOpenPopupCard = document.querySelector('.profile__add-button');
-const formElement = document.querySelector('.popup__container');
-const editFormPopup = document.querySelector('.profilepopup__container');
 const formCard = document.querySelector('.cardpopup__container');
 const nameInput = document.querySelector('.popup__input_data_name');
 const jobInput = document.querySelector('.popup__input_data_profession');
@@ -14,8 +14,9 @@ const linkInput = document.querySelector('.cardpopup__input_data_link');
 const profileName = document.querySelector('.profile__name');
 const profileProfession = document.querySelector('.profile__profession');
 const popupImage = document.querySelector('.imagepopup');
-const saveButton = popupCard.querySelector('.popup__save-button');
 const elements = document.querySelector('.elements');
+const formEditProfile = document.querySelector('.popup__container');
+const popupElems = document.querySelectorAll('.popup');
 const initialCards = [
     {
         name: 'Архыз',
@@ -50,7 +51,7 @@ const cardsInfo = initialCards.map(function (item) {
     };
 });
 
-function submitFormHandler(evt) {
+function submitEditProfileForm(evt) {
     evt.preventDefault();
     profileName.textContent = nameInput.value;
     profileProfession.textContent = jobInput.value;
@@ -86,11 +87,11 @@ function closeCardPopup() {
 function closeImagePopup() {
     closePopup(popupImage);
 }
-function openCardPopup() {
+function openCardPopup(FormValidator) {
     inputNameCard.value = "";
     linkInput.value = "";
     openPopup(popupCard);
-    stopCreate();
+    cardFormValidator.stopCreate();
 }
 function submitCardFormHandler(evt) {
     evt.preventDefault();
@@ -98,17 +99,12 @@ function submitCardFormHandler(evt) {
     closePopup(popupCard);
 }
 
-function stopCreate() {
-    saveButton.disabled = true;
-    saveButton.classList.add('popup__save-button_disabled');
-};
-
-function render() {
+function renderInitialCards() {
     cardsInfo.forEach(addCard);
 }
 
 
-render();
+renderInitialCards();
 
 function addCard(initialCards) {
     const card = new Card(initialCards, '.card');
@@ -118,10 +114,10 @@ function addCard(initialCards) {
 
 
 buttonOpenPopupProfile.addEventListener('click', openProfilePopup);
-formElement.addEventListener('submit', submitFormHandler);
+formEditProfile.addEventListener('submit', submitEditProfileForm);
 
-document.querySelectorAll('.popup__close-button').forEach(closeButtons => {
-    closeButtons.addEventListener('click', (evt) => {
+closeButtons.forEach(closeButton => {
+    closeButton.addEventListener('click', (evt) => {
         const popup = document.querySelector('.popup_opened');
         closePopup(popup);
     });
@@ -129,7 +125,7 @@ document.querySelectorAll('.popup__close-button').forEach(closeButtons => {
 buttonOpenPopupCard.addEventListener('click', openCardPopup);
 formCard.addEventListener('submit', submitCardFormHandler);
 
-document.querySelectorAll('.popup').forEach(popupEl => {
+popupElems.forEach(popupEl => {
     popupEl.addEventListener('click', (evt) => {
         if (evt.target === evt.currentTarget && evt.target.classList.contains('popup_opened')) {
             closePopup(evt.currentTarget);
@@ -137,5 +133,9 @@ document.querySelectorAll('.popup').forEach(popupEl => {
     });
 })
 
+const editFormValidator = new FormValidator(validParametrs, profilePopup);
+const cardFormValidator = new FormValidator(validParametrs, popupCard);
 
-export { profilePopup, popupCard }
+editFormValidator.enableValidation();
+cardFormValidator.enableValidation();
+

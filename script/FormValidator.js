@@ -1,5 +1,6 @@
-import { profilePopup, popupCard } from './index.js'
-
+const formElement = document.querySelector('.popup__container');
+const popupCard = document.querySelector('.cardpopup');
+const saveButton = popupCard.querySelector('.popup__save-button');
 const validParametrs = {
     formSelector: '.popup__container',
     inputSelector: '.popup__input',
@@ -62,10 +63,10 @@ class FormValidator {
         const buttonElement = this._formElement.querySelector(this._submitButtonSelector);
         if (this._checkValidity()) {
             buttonElement.disabled = true;
-            buttonElement.classList.add('popup__save-button_disabled');
+            buttonElement.classList.add(validParametrs.inactiveButtonClass);
         } else {
             buttonElement.disabled = false;
-            buttonElement.classList.remove('popup__save-button_disabled');
+            buttonElement.classList.remove(validParametrs.inactiveButtonClass);
         }
     }
 
@@ -73,13 +74,11 @@ class FormValidator {
         this._setEventListeners();
     }
 
+    stopCreate() {
+        saveButton.disabled = true;
+        saveButton.classList.add('popup__save-button_disabled');
+    };
 }
 
 
-const editFormValidator = new FormValidator(validParametrs, profilePopup);
-const cardFormValidator = new FormValidator(validParametrs, popupCard);
-
-editFormValidator.enableValidation();
-cardFormValidator.enableValidation();
-
-export { FormValidator }
+export { FormValidator, validParametrs }

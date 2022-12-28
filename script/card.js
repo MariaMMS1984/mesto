@@ -1,14 +1,51 @@
+
+const cardData = [
+    {
+        name: 'Архыз',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg',
+    },
+    {
+        name: 'Челябинская область',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+    },
+    {
+        name: 'Иваново',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+    },
+    {
+        name: 'Камчатка',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+    },
+    {
+        name: 'Холмогорский район',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+    },
+    {
+        name: 'Байкал',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+    }
+
+];
+
+const cardSelector = document.querySelector('#cards-template');
+const popupImage = document.querySelector('.popup__image');
+const popupTitle = document.querySelector('.popup__imgtitle');
+const popupImg = document.querySelector('.imagepopup');
+const closePopupByEsc = () => {                                  // иначе ошибка "Uncaught TypeError: Cannot read properties of undefined (reading 'key')"
+    document.addEventListener('keydown', () => {
+        popupImg.classList.remove('popup_opened')
+    })
+};
 class Card {
-    constructor(initialCards) {
-        this._name = initialCards.name;
-        this._link = initialCards.link;
+    constructor(cardData, cardSelector) {
+        this._name = cardData.name;
+        this._link = cardData.link;
+        this._cardSelector = cardSelector;
     }
 
     _getTemplate() {
-        const cardsElement = document.querySelector('#cards-template').content
-            .querySelector(".card").
-            cloneNode(true);
-        return cardsElement;
+        const cardsElement = cardSelector.content.querySelector('.card').cloneNode(true);
+        return cardsElement
     }
 
     _handleLikeClick() {
@@ -47,16 +84,15 @@ class Card {
     };
 
     _openImagePopup() {
-        document.querySelector('.popup__imgtitle').textContent = this._name;
-        document.querySelector('.popup__image').src = this._link;
-        document.querySelector('.popup__image').alt = this._name;
+        popupTitle.textContent = this._name;
+        popupImage.src = this._link;
+        popupImage.alt = this._name;
         this._openPopup();
     }
 
     _openPopup() {
-        const popupEl = document.querySelector('.imagepopup')
-        popupEl.classList.add('popup_opened');
-        document.addEventListener('keydown', () => { popupEl.classList.remove('popup_opened') });
+        popupImg.classList.add('popup_opened');
+        closePopupByEsc();
     }
 
 }
