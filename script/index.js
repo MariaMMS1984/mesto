@@ -91,7 +91,7 @@ function openCardPopup(FormValidator) {
     inputNameCard.value = "";
     linkInput.value = "";
     openPopup(popupCard);
-    cardFormValidator.stopCreate();
+    cardFormValidator.disableSubmitButton();
 }
 function submitCardFormHandler(evt) {
     evt.preventDefault();
